@@ -12,66 +12,80 @@ function promptUser() {
     {
       type: "input",
       message: "Enter project title:",
-      name: "Title",
+      name: "title",
     },
     {
       type: "input",
       message: "Enter project description:",
-      name: "Description",
+      name: "description",
     },
-    // {
-    //   type: "input",
-    //   message: "Enter installation notes:",
-    //   name: "Installation",
-    // },
-    // {
-    //   type: "input",
-    //   message: "Enter usage notes:",
-    //   name: "Usage",
-    // },
-    // {
-    //   type: "input",
-    //   message: "Enter License info:",
-    //   name: "License",
-    // },
-    // {
-    //   type: "input",
-    //   message: "Enter contributers:",
-    //   name: "Contributing",
-    // },
-    // {
-    //   type: "input",
-    //   message: "Enter testing info:",
-    //   name: "Testing",
-    // },
-    // {
-    //   type: "input",
-    //   message: "Enter contributers",
-    //   name: "Contributing",
-    // },
-    // {
-    //   type: "input",
-    //   message: "Enter questions:",
-    //   name: "Questions",
-    // },
+    {
+      type: "input",
+      message: "Enter installation notes:",
+      name: "installation",
+    },
+    {
+      type: "input",
+      message: "Enter usage notes:",
+      name: "usage",
+    },
+    {
+      type: "input",
+      message: "Enter License info:",
+      name: "license",
+    },
+    {
+      type: "input",
+      message: "Enter contributers:",
+      name: "contributing",
+    },
+    {
+      type: "input",
+      message: "Enter testing info:",
+      name: "testing",
+    },
+    {
+      type: "input",
+      message: "Enter questions:",
+      name: "questions",
+    },
   ]);
 }
 
 function generateREADME(answers) {
-  return `test within generated`;
+  return `  
+# ${answers.title}
+${badges} \n
+
+## Description 
+${answers.description} \n
+
+## Installation
+${answers.installation} \n
+
+## Usage
+${answers.usage} \n
+
+## License
+${answers.license} \n
+
+## Contributing
+${answers.contributing} \n
+
+## Testing
+${answers.testing} \n
+
+## Questions
+${answers.questions} \n
+
+`;
 }
 
 async function init() {
   console.log("made it");
   try {
     const answers = await promptUser();
-    console.log(answers);
-    console.log(answers.Title);
-    const md = generateREADME(answers);
-    console.log("generateREADME " + md);
-
-    await writeFileAsync("README.md", generateREADME() + "\n");
-    console.log("Successfully wrote to README.md");
+    await writeFileAsync("README.md", generateREADME(answers) + "\n");
   } catch (err) {
     console.log(err);
   }

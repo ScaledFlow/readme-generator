@@ -1,56 +1,12 @@
 const fs = require("fs");
-const inquirer = require("inquirer");
+// const inquirer = require("inquirer");
 const util = require("util");
+const promptUser = require("./prompts.js");
 
 const writeFileAsync = util.promisify(fs.writeFile);
 
 let badges =
   "![APM](https://img.shields.io/apm/l/vim-mode) [![Build Status](https://travis-ci.com/ScaledFlow/readme-generator.svg?branch=master)](https://travis-ci.com/ScaledFlow/readme-generator)";
-
-function promptUser() {
-  return inquirer.prompt([
-    {
-      type: "input",
-      message: "Enter project title:",
-      name: "title",
-    },
-    {
-      type: "input",
-      message: "Enter project description:",
-      name: "description",
-    },
-    {
-      type: "input",
-      message: "Enter installation notes:",
-      name: "installation",
-    },
-    {
-      type: "input",
-      message: "Enter usage notes:",
-      name: "usage",
-    },
-    {
-      type: "input",
-      message: "Enter License info:",
-      name: "license",
-    },
-    {
-      type: "input",
-      message: "Enter contributers:",
-      name: "contributing",
-    },
-    {
-      type: "input",
-      message: "Enter testing info:",
-      name: "testing",
-    },
-    {
-      type: "input",
-      message: "Enter questions:",
-      name: "questions",
-    },
-  ]);
-}
 
 function generateREADME(answers) {
   return `  
@@ -77,7 +33,6 @@ ${answers.testing} \n
 
 ## Questions
 ${answers.questions} \n
-
 `;
 }
 

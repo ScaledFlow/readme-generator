@@ -1,5 +1,7 @@
+// Require inquirer - used for CLI user interface and session flow
 const inquirer = require("inquirer");
 
+// List of question the user is promptes with at the CLI
 function promptUser() {
   return inquirer.prompt([
     {
@@ -45,4 +47,5 @@ function promptUser() {
   ]);
 }
 
+// Export module
 module.exports = promptUser;

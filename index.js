@@ -1,13 +1,18 @@
+// Require fs and util nodes
 const fs = require("fs");
-// const inquirer = require("inquirer");
 const util = require("util");
+
+// Import prompts.js
 const promptUser = require("./prompts.js");
 
+// Setup up util.promisify
 const writeFileAsync = util.promisify(fs.writeFile);
 
+// Create badges linked to travis-ci.com
 let badges =
   "![APM](https://img.shields.io/apm/l/vim-mode) [![Build Status](https://travis-ci.com/ScaledFlow/readme-generator.svg?branch=master)](https://travis-ci.com/ScaledFlow/readme-generator)";
 
+// Create layout for README.md file
 function generateREADME(answers) {
   return `  
 # ${answers.title}
@@ -36,6 +41,7 @@ ${answers.questions} \n
 `;
 }
 
+// Prompt users from the CLI for README info and generate a README.md file.
 async function init() {
   console.log("made it");
   try {
@@ -46,4 +52,5 @@ async function init() {
   }
 }
 
+// Initialize program
 init();

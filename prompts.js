@@ -11,6 +11,22 @@ function promptUser() {
     },
     {
       type: "input",
+      message: "Enter GitHub userName:",
+      name: "userName",
+    },
+    {
+      type: "input",
+      message: "Enter GitHub repo:",
+      name: "repo",
+    },
+
+    {
+      type: "input",
+      message: "Enter email:",
+      name: "email",
+    },
+    {
+      type: "input",
       message: "Enter project description:",
       name: "description",
     },
@@ -38,11 +54,6 @@ function promptUser() {
       type: "input",
       message: "Enter testing info:",
       name: "testing",
-    },
-    {
-      type: "input",
-      message: "Enter questions:",
-      name: "questions",
     },
   ]);
 }

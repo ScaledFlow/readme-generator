@@ -29,6 +29,7 @@ ${"```"}
 
 ## Usage
 ${answers.usage} \n
+![](./assets/img/${answers.screenshot}) \n
 
 ## License
 ${answers.license} \n
@@ -43,11 +44,8 @@ ${answers.contributing} \n
 }
 
 function userData(answers) {
-  //console.log(answers.userName);
-
   // Retrieve data from gitHub
   const queryUrl = `https://api.github.com/users/${answers.userName}/repos?per_page=1`;
-  //console.log(queryUrl);
 
   axios
     .get(queryUrl)
@@ -62,9 +60,7 @@ function userData(answers) {
     .catch(function (error) {
       console.log(error);
     })
-    .finally(function () {
-      //console.log(avitar);
-    });
+    .finally(function () {});
 }
 
 async function init() {

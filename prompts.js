@@ -42,6 +42,11 @@ function promptUser() {
     },
     {
       type: "input",
+      message: "Enter screen shot image name:",
+      name: "screenshot",
+    },
+    {
+      type: "input",
       message: "Enter License info:",
       name: "license",
     },
